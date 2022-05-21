@@ -1,0 +1,35 @@
+<div class="container__articles-form">
+    <form [formGroup]="articleForm" class="container__articles-form" >
+        <div formArrayName="articles" class="container__cards"  *ngFor="let article of getArticleList.controls; let i = index">
+            <div [formGroupName]="i" class="card" [ngClass]="{'is-Editing': articleList[i].isEditing}">
+                <div class="card__header">
+                    <div class="card__title-subtitle">
+                        <mat-form-field class="form__input" appearance="legacy">
+                            <mat-label>Title</mat-label>
+                            <input matInput formControlName="title">
+                        </mat-form-field>
+                        <mat-form-field class="form__input" appearance="legacy">
+                            <mat-label>Journal</mat-label>
+                            <input matInput formControlName="journal">
+                        </mat-form-field>
+                    </div>
+                    <mat-icon class="card__close" (click)="deleteArticleForm(i)">close</mat-icon>
+                </div>
+                <div class="card__image-container">
+                    <img [src]="getImageSource(i)" alt="Logo">
+                </div>
+                <div class="card__abstract" *ngIf="articleList[i].isShowingAbstract">
+                    <mat-form-field class="form__input" appearance="legacy">
+                        <mat-label>Abstract</mat-label>
+                        <textarea matInput formControlName="abstract"></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="card__buttons">
+                    <button *ngIf="!articleList[i].isEditing" mat-raised-button color="primary" (click)="editArticleForm(i)">Edit</button>
+                    <button mat-raised-button color="accent" (click)="showAbstract(i)">{{!articleList[i].isShowingAbstract ? 'Show abstract' : 'Hide abstract'}}</button>
+                    <button *ngIf="articleList[i].isEditing" mat-raised-button color="warn" (click)="cancelEditForm(i)">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

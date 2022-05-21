@@ -1,0 +1,42 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+    padding: 15px;
+    text-align: justify;
+    .card__header{
+        display: flex;
+        padding-right: 10px;
+    }
+    .card__title-subtitle{
+        display: flex;
+        flex-direction: column;
+    }
+    .card__buttons{
+        display: flex;
+        gap: 10px;
+    }
+    .card__close{
+        cursor: pointer;
+        padding-left: 20px;
+    }
+}
+
+.is-Editing{
+    box-shadow: rgba(178, 6, 6, 0.69) 0 2px 8px 0;
+}
+
+.container__articles-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: 200px;
+
+}
+
+.container__cards{
+    flex: 0 1 24%;
+}

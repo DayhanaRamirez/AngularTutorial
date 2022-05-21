@@ -1,0 +1,22 @@
+.container{
+    margin: 20px;
+    .container__articles{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    .container__cards{
+        flex: 0 1 24%;
+    }
+}
+
+.container__articles-form{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+
+}

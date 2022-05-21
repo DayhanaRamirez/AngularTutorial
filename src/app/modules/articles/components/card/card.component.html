@@ -1,0 +1,20 @@
+<div class="card" [ngClass]="{'is-Editing': article.isEditing}">
+    <div class="card__header">
+        <div class="card__title-subtitle">
+            <span>{{article.title}}</span>
+            <span>Journal: {{article.journal}}</span>
+        </div>
+        <mat-icon class="card__close" (click)="deleteArticle()">close</mat-icon>
+    </div>
+    <div class="card__image-container">
+        <img [src]="getImageSource()" alt="Logo">
+    </div>
+    <div class="card__abstract">
+       <p>{{isShowingAbstract ? (article.abstract | slice: 0:500) : 'Please, click on Show Abstract'}}</p>
+    </div>
+    <div class="card__buttons">
+        <button *ngIf="!article.isEditing"  mat-raised-button color="primary" (click)="editArticle()">Edit</button>
+        <button mat-raised-button color="accent" (click)="showAbstract()">{{isShowingAbstract ? 'Hide Abstract' : 'Show Abstract' }}</button>
+        <button *ngIf="article.isEditing" mat-raised-button color="warn" (click)="cancelEdit()">Cancel</button>
+    </div>
+</div>

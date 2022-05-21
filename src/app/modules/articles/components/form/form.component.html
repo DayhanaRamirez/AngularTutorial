@@ -1,0 +1,15 @@
+<div class="form">
+  <mat-form-field class="form__input" appearance="legacy">
+    <mat-label>Title</mat-label>
+    <input type="text" matInput [(ngModel)] = "articleTitle">
+  </mat-form-field>
+  <mat-form-field class="form__input" appearance="legacy">
+    <mat-label>Journal</mat-label>
+    <input type="text" matInput [(ngModel)] = "articleJournal">
+  </mat-form-field>
+  <mat-form-field class="form__input" appearance="legacy">
+    <mat-label>Abstract</mat-label>
+    <textarea type="text" matInput [(ngModel)] = "articleAbstract"></textarea>
+  </mat-form-field>
+  <button [disabled]="articleTitle === '' || articleJournal === '' || articleAbstract === '' " mat-raised-button color="{{isEditing ? 'accent' : 'primary'}}" (click)="addArticle()">{{isEditing ? "Update article" : "Add article"}}</button>
+</div>

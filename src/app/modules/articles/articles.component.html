@@ -1,0 +1,12 @@
+<div class="container">
+    <div>
+        <app-form [editingArticle] = "editingArticle" (addArticleEmitter)="addArticle($event)"></app-form>
+    </div>
+    <div class="container__articles">
+        <app-card class="container__cards" *ngFor="let article of articleList" [article]="article" (editArticleEmitter)="editArticle($event)" (cancelEditingEmitter)="cancelEdit($event)" (deleteArticleEmitter)="deleteArticle($event)" ></app-card>
+    </div>
+</div>
+
+<div class="container__articles">
+    <app-articles-form [articleList] = "articleList" [addArticleForm] = "addArticleForm" (editArticleFormEmitter)="editArticleForm($event)" (cancelEditingFormEmitter)="cancelEditForm($event)" (showAbstractFormEmitter)="showAbstractForm($event)" (deleteArticleFormEmitter)="deleteArticleForm($event)"></app-articles-form>
+</div>
